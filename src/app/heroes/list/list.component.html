@@ -1,0 +1,12 @@
+<h3>Heroes list</h3>
+
+<ul class="flex flex-col gap-2">
+  <li *ngFor="let hero of getHeroes">
+    <app-heroes-hero
+    [name]="hero.name"
+    [alter]="hero.alter"
+    [age]="hero.age"
+    [powers]="hero?.powers ?? []"
+    />
+  </li>
+</ul>
