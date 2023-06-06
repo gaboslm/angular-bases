@@ -1,0 +1,26 @@
+<h3 class="font-medium">Choose a power!</h3>
+
+<ul class="flex content-center gap-2 mt-3" >
+
+  <li *ngFor="let power of getPowers">
+    <button
+      type="text"
+      (click)="changePower(power)"
+      class="px-2 rounded-full"
+      [class]="alreadyHasPower(power) ? 'bg-gray-200' : '' "
+    >
+      <span class="text-gray-500">{{ power }}</span>
+    </button>
+  </li>
+
+  <li>
+    <button
+      class="border rounded-full bg-black py-0.5 px-3 hover:bg-gray-900 text-white ease-in-out duration-300"
+      (click)="onClose()"
+    >
+      Done
+    </button>
+  </li>
+
+</ul>
+
