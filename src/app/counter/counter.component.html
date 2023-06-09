@@ -1,5 +1,15 @@
-<h3>Counter: {{ counter }}</h3>
+<app-title>Counter</app-title>
 
-<button (click)="decreaseCounter()">-</button>
-<button (click)="increaseCounter()">+</button>
-<button (click)="resetCounter()">Reset</button>
+<div class="flex flex-col mb-3">
+  <div class="flex gap-2">
+
+    <button type="button" class="rounded-full px-3 border cursor-default hover:bg-slate-100 duration-200" (click)="decreaseCounter()">-</button>
+    <h3>{{ counter }}</h3>
+    <button type="button" class="rounded-full px-3 border cursor-default hover:bg-slate-100 duration-200" (click)="increaseCounter()">+</button>
+
+  </div>
+
+  <button type="button" class="rounded-full px-5 border cursor-default hover:bg-slate-100 duration-200 w-fit" (click)="resetCounter()">Reset</button>
+</div>
+
+<hr>
