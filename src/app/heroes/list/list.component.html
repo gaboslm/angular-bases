@@ -1,6 +1,17 @@
-<h3>Heroes list</h3>
+<app-title>Heroes list</app-title>
+
+<ng-template [ngIf]="getHeroes.length > 0" [ngElseIf]="NoHeroes">
+  <button>DeleteHero</button>
+</ng-template>
+
+<ng-template NoHeroes>
+
+</ng-template>
 
 <ul class="flex flex-col gap-2">
+
+  <app-heroes-hero />
+
   <li *ngFor="let hero of getHeroes">
     <app-heroes-hero
     [name]="hero.name"
@@ -9,4 +20,5 @@
     [powers]="hero?.powers ?? []"
     />
   </li>
+
 </ul>
