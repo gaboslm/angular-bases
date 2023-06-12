@@ -11,9 +11,15 @@ import { HeroList } from 'src/app/data/heroes.service';
 export class ListComponent {
 
   private heroes: Hero[] = HeroList
+  public lastDeletedHero?: string;
 
   get getHeroes(){
     return this.heroes;
   }
 
+  deleteLastHero(){
+    const deletedHero = this.heroes.pop()
+
+    this.lastDeletedHero = deletedHero?.name
+  }
 }
