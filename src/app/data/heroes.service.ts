@@ -1,4 +1,4 @@
-import type { Hero } from '../types/Hero';
+import type { Hero } from '../interfaces/Hero';
 
 export const HeroList: Hero[] = [
   {
