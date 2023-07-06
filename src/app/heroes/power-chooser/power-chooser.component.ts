@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import type { Power } from '../../types/Power';
+import type { Power } from '../../interfaces/Power';
 import { HeroPowerList } from 'src/app/data/hero-power.service';
 
 @Component({

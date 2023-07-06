@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import type { Power } from 'src/app/types/Power';
+import type { Power } from 'src/app/interfaces/Power';
 
 @Component({
   selector: 'app-heroes-hero',

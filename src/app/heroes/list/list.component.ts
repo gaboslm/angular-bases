@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from 'src/app/types/Hero';
+import { Hero } from 'src/app/interfaces/Hero';
 import { HeroList } from 'src/app/data/heroes.service';
 
 @Component({
