@@ -1,11 +1,11 @@
-<app-title>Heroes list</app-title>
+<!-- <app-title>Heroes list</app-title> -->
 
 <p class="">
   <span class="font-medium">Last deleted hero: </span>
   <span class="text-red-500">{{ lastDeletedHero }}</span>
 </p>
 
-<ng-template [ngIf]="getHeroes.length > 0" [ngIfElse]="noMoreHeroes">
+<ng-template *ngIf="getHeroes.length > 0; else noMoreHeroes">
   <button
   class="border border-red-500 text-red-500 rounded-full py-0.5 px-3 hover:bg-red-500 hover:text-white ease-in-out duration-300"
   (click)="deleteLastHero()"
