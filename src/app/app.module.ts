@@ -5,6 +5,7 @@ import { HeroesModule } from './heroes/heroes.module';
 import { TitleModule } from './title/title.module';
 
 import { AppComponent } from './app.component';
+import { DbzModule } from './dbz/dbz.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
     TitleModule,
     HeroesModule,
     CounterModule,
+    DbzModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
