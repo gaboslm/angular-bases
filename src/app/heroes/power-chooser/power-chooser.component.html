@@ -1,21 +1,18 @@
-<h3 class="font-medium">Choose a power!</h3>
-
-<ul class="flex flex-wrap content-center gap-2 mt-3" >
-
-  <li *ngFor="let power of getPowers">
-    <button
-      type="text"
-      (click)="changePower(power)"
-      class="px-2 rounded-full"
-      [class]="alreadyHasPower(power) ? 'bg-gray-200' : '' "
-    >
-      <span class="text-gray-500">{{ power }}</span>
-    </button>
-  </li>
-
-  <li>
-    <a href="#" (click)="onClose()" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Done</a>
-  </li>
-
-</ul>
-
+<div style="border-top: 1px solid #797979;" class="pt-2">
+  <h3 class="text-sm font-normal text-gray-400 dark:text-gray-300 text-center">Choose a power!</h3>
+  <ul class="flex flex-wrap content-center justify-center gap-2 mt-3" >
+    <li *ngFor="let power of getPowers">
+      <button
+        type="text"
+        (click)="changePower(power)"
+        class="px-2 py-2 rounded-full"
+        [class]="alreadyHasPower(power) ? 'inline-flex items-center px-4  text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700' : '' "
+      >
+        <span class="text-gray-500">{{ power }}</span>
+      </button>
+    </li>
+    <li>
+      <a href="#" (click)="onClose()" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Done</a>
+    </li>
+  </ul>
+</div>
