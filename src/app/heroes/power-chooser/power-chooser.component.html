@@ -1,6 +1,6 @@
 <h3 class="font-medium">Choose a power!</h3>
 
-<ul class="flex content-center gap-2 mt-3" >
+<ul class="flex flex-wrap content-center gap-2 mt-3" >
 
   <li *ngFor="let power of getPowers">
     <button
@@ -14,12 +14,7 @@
   </li>
 
   <li>
-    <button
-      class="border rounded-full bg-black py-0.5 px-3 hover:bg-gray-900 text-white ease-in-out duration-300"
-      (click)="onClose()"
-    >
-      Done
-    </button>
+    <a href="#" (click)="onClose()" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Done</a>
   </li>
 
 </ul>

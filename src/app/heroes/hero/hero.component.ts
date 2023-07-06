@@ -8,6 +8,7 @@ import type { Power } from 'src/app/interfaces/Power';
 })
 export class HeroComponent implements OnInit {
 
+  @Input() image?: string = '';
   @Input() name: string = 'Unknow';
   @Input() alter: string = 'Unknow';
   @Input() age: number = 0;

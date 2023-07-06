@@ -1,61 +1,43 @@
-<article class="shadow-sm hover:shadow-lg transition-shadow duration-400 ease-in-out p-3">
+<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div class="flex flex-col items-center pb-10">
+      <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-cover" [src]="image" alt="Bonnie image"/>
+      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ name }}</h5>
+      <span class="text-sm text-gray-500 dark:text-gray-400">{{ alter }}</span>
+      <div>
+        <label class="text-sm font-normal text-gray-400 dark:text-gray-300">Years old: </label>
+        <ng-template [ngIf]="age != 0" [ngIfElse]="unknownAge">
+          <span class="text-sm text-gray-500 dark:text-gray-400">{{ age }}</span>
+        </ng-template>
+        <ng-template #unknownAge>
+          <span> -- </span>
+        </ng-template>
+      </div>
+      <div>
+        <label class="text-sm font-normal text-gray-400 dark:text-gray-300">Powers: </label>
+        <ng-template [ngIf]="powers.length > 0" [ngIfElse]="unknownPowers">
+          <span class="text-sm text-gray-500 dark:text-gray-400" *ngFor="let power of powers; let i = index">
+            <span *ngIf="i !== 0">, </span>
+            <span class="font-light" >{{ power }}</span>
+          </span>
+        </ng-template>
+        <ng-template #unknownPowers>
+          <span class="font-light"> -- </span>
+        </ng-template>
+      </div>
 
-  <h2 class="text-xl font-bold">{{ name }}</h2>
-
-  <dl>
-
-    <td>
-      <label class="font-normal">Alter ego: </label>
-      <span class="font-light">{{ alter }}</span>
-    </td>
-
-    <dd>
-      <label class="font-normal">Years old: </label>
-
-      <ng-template [ngIf]="age != 0" [ngIfElse]="unknownAge">
-        <span class="font-light">{{ age }}</span>
+      <ng-template [ngIf]="choosing" [ngIfElse]="noChoossing" class="mt-3">
+          <app-heroes-power-chooser
+            *ngIf="choosing"
+            [includedPowers]="powers"
+            (change)="togglePower($event)"
+            (close)="closePowerChooser()"
+          />
       </ng-template>
-
-      <ng-template #unknownAge>
-        <span> -- </span>
+      <ng-template #noChoossing>
+        <div class="flex mt-4 space-x-3 md:mt-6 mt-2">
+            <a href="#" (click)="chooseAPower($event)" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Available powers</a>
+        </div>
       </ng-template>
-    </dd>
+  </div>
+</div>
 
-    <dd>
-      <label class="font-normal">Powers: </label>
-
-      <ng-template [ngIf]="powers.length > 0" [ngIfElse]="unknownPowers">
-        <span *ngFor="let power of powers; let i = index">
-          <span *ngIf="i !== 0">, </span>
-          <span class="font-light" >{{ power }}</span>
-        </span>
-      </ng-template>
-
-      <ng-template #unknownPowers>
-        <span class="font-light"> -- </span>
-      </ng-template>
-    </dd>
-
-    <ng-template [ngIf]="choosing" [ngIfElse]="noChoossing" class="mt-3">
-      <app-heroes-power-chooser
-        *ngIf="choosing"
-        [includedPowers]="powers"
-        (change)="togglePower($event)"
-        (close)="closePowerChooser()"
-      />
-    </ng-template>
-
-    <ng-template #noChoossing>
-     <div class="mt-2">
-      <button
-        class="border rounded-full bg-black py-0.5 px-3 hover:bg-gray-900 text-white ease-in-out duration-300"
-        (click)="chooseAPower($event)"
-      >
-        Available powers
-      </button>
-     </div>
-    </ng-template>
-
-  </dl>
-
-</article>

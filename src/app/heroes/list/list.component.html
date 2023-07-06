@@ -20,10 +20,9 @@
 
 <ul class="flex flex-col gap-2">
 
-  <app-heroes-hero />
-
   <li *ngFor="let hero of getHeroes">
     <app-heroes-hero
+    [image]="hero.image"
     [name]="hero.name"
     [alter]="hero.alter"
     [age]="hero.age"
