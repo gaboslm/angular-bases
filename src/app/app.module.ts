@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CounterModule } from './counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { TitleModule } from './title/title.module';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { DbzModule } from './dbz/dbz.module';
@@ -13,6 +14,7 @@ import { DbzModule } from './dbz/dbz.module';
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
     TitleModule,
     HeroesModule,
     CounterModule,
