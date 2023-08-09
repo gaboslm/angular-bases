@@ -1,31 +1,30 @@
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-  <div class="flex flex-col items-center pb-6">
-      <img class="w-24 h-24 mb-3 rounded-full shadow-lg object-cover" [src]="image" alt="Bonnie image"/>
-      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ name }}</h5>
-      <span class="text-sm text-gray-500 dark:text-gray-400">{{ alter }}</span>
+<div class="card">
+  <img class="card-img-top shadow object-fit-cover" [src]="image" alt="Character image" style="height: 350px;"/>
+  <div class="d-flex flex-column p-3">
+      <h5 class="mb-1 fs-5">{{ name }}</h5>
+      <span>{{ alter }}</span>
       <div>
-        <label class="text-sm font-normal text-gray-400 dark:text-gray-300">Years old: </label>
         <ng-template [ngIf]="age != 0" [ngIfElse]="unknownAge">
-          <span class="text-sm text-gray-500 dark:text-gray-400">{{ age }}</span>
+          <span>{{ age }}</span>
         </ng-template>
         <ng-template #unknownAge>
           <span> -- </span>
         </ng-template>
+        <span> Years old</span>
       </div>
       <div class="mb-2">
-        <label class="text-sm font-normal text-gray-400 dark:text-gray-300">Powers: </label>
         <ng-template [ngIf]="powers.length > 0" [ngIfElse]="unknownPowers">
-          <span class="text-sm text-gray-500 dark:text-gray-400" *ngFor="let power of powers; let i = index">
+          <span *ngFor="let power of powers; let i = index">
             <span *ngIf="i !== 0">, </span>
-            <span class="font-light" >{{ power }}</span>
+            <span>{{ power }}</span>
           </span>
         </ng-template>
         <ng-template #unknownPowers>
-          <span class="font-light"> -- </span>
+          <span> -- </span>
         </ng-template>
       </div>
       <ng-template [ngIf]="choosing" [ngIfElse]="noChoossing" class="mt-3">
-        <div class="mx-auto">
+        <div class="w-auto">
           <app-heroes-power-chooser
             *ngIf="choosing"
             [includedPowers]="powers"
@@ -35,9 +34,7 @@
         </div>
       </ng-template>
       <ng-template #noChoossing>
-        <div class="flex mt-4 space-x-3 md:mt-6 mt-2">
-            <a href="#" (click)="chooseAPower($event)" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Available powers</a>
-        </div>
+        <button class="btn btn-dark btn-sm mt-2 " (click)="chooseAPower($event)">Available powers</button>
       </ng-template>
   </div>
 </div>

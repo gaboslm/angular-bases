@@ -32,6 +32,7 @@ export class ListComponent {
       powers: [],
     }
   ]
+  public noMoreHeroesImg = 'https://www.fayerwayer.com/resizer/I606tkpzpYhqbwWOOXJQfPSENL8=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/C6FRR2WKRRH5VOVLF4Q4GBSJTY.jpg';
   public lastDeletedHero?: string;
 
   get getHeroes(){

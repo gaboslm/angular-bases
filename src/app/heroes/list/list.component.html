@@ -1,33 +1,28 @@
-<!-- <app-title>Heroes list</app-title> -->
-
-<p class="">
-  <span class="font-medium">Last deleted hero: </span>
-  <span class="text-red-500">{{ lastDeletedHero }}</span>
-</p>
-
-<ng-template *ngIf="getHeroes.length > 0; else noMoreHeroes">
+<div *ngIf="getHeroes.length == 0; else heroList" class="mx-auto text-center " style="width: 250px;">
+  <img [src]="noMoreHeroesImg" alt="Goku" class="w-100 mb-2 rounded">
+  <p class="f-light text-sm">No more heroes to delete..</p>
+</div>
+<ng-template #heroList>
+  <p class="text-md">
+    <span>Last deleted hero: </span>
+    <span class="f-light">{{ lastDeletedHero }}</span>
+  </p>
   <button
-  class="border border-red-500 text-red-500 rounded-full py-0.5 px-3 hover:bg-red-500 hover:text-white ease-in-out duration-300"
+  class="btn btn-dark btn-sm"
   (click)="deleteLastHero()"
   >
     Delete last hero
   </button>
 </ng-template>
-
-<ng-template #noMoreHeroes>
-  <p>No more heroes to delete!</p>
-</ng-template>
-
-<ul class="flex flex-col gap-2">
-
-  <li *ngFor="let hero of getHeroes">
+<ul class="d-flex gap-2">
+  <li *ngFor="let hero of getHeroes" style="width: 18rem; list-style: none;">
     <app-heroes-hero
     [image]="hero.image"
     [name]="hero.name"
     [alter]="hero.alter"
     [age]="hero.age"
     [powers]="hero?.powers ?? []"
+    cl
     />
   </li>
-
 </ul>
