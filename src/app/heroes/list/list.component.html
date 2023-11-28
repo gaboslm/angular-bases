@@ -1,21 +1,23 @@
-<div *ngIf="getHeroes.length == 0; else heroList" class="mx-auto text-center " style="width: 250px;">
-  <img [src]="noMoreHeroesImg" alt="Goku" class="w-100 mb-2 rounded">
-  <p class="f-light text-sm">No more heroes to delete..</p>
+<div class="mx-auto d-flex flex-column gap-2" style="width: 250px;">
+  <div *ngIf="getHeroes.length == 0; else heroList" class="mx-auto text-center">
+    <img [src]="noMoreHeroesImg" alt="Goku" class="w-100 mb-2 rounded">
+    <p class="f-light text-sm">No more heroes to delete..</p>
+  </div>
+  <ng-template #heroList>
+    <button
+    class="btn btn-dark btn-sm mb-2"
+    (click)="deleteLastHero()"
+    >
+      Delete last hero
+    </button>
+    <p class="text-md mb-3">
+      <span>Last deleted hero: </span>
+      <span class="f-light">{{ lastDeletedHero ?? '--' }}</span>
+    </p>
+  </ng-template>
 </div>
-<ng-template #heroList>
-  <p class="text-md">
-    <span>Last deleted hero: </span>
-    <span class="f-light">{{ lastDeletedHero }}</span>
-  </p>
-  <button
-  class="btn btn-dark btn-sm"
-  (click)="deleteLastHero()"
-  >
-    Delete last hero
-  </button>
-</ng-template>
-<ul class="d-flex gap-2">
-  <li *ngFor="let hero of getHeroes" style="width: 18rem; list-style: none;">
+<ul class="d-flex flex-wrap gap-2">
+  <li *ngFor="let hero of getHeroes" style="min-width: 10rem; max-width: 18rem; flex-grow: 1;">
     <app-heroes-hero
     [image]="hero.image"
     [name]="hero.name"
