@@ -4,9 +4,9 @@ import { CounterModule } from './counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { TitleModule } from './title/title.module';
 import { MatIconModule } from '@angular/material/icon';
-
 import { AppComponent } from './app.component';
 import { DbzModule } from './dbz/dbz.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { DbzModule } from './dbz/dbz.module';
     HeroesModule,
     CounterModule,
     DbzModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
